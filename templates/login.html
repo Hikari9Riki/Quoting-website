@@ -1,14 +1,21 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="card">
-    <h2>Admin Login</h2>
+<div class="card" style="max-width: 400px; margin: 0 auto;">
+    <h2 style="text-align: center; color: var(--primary);">Admin Login</h2>
+    
     <form method="POST">
-        <label>Username</label>
-        <input type="text" name="username" required>
-        <label>Password</label>
-        <input type="password" name="password" required>
-        <button type="submit" class="btn">Enter</button>
+        <div style="margin-bottom: 1rem;">
+            <label style="display: block; margin-bottom: 0.5rem;">Username</label>
+            <input type="text" name="username" required placeholder="Enter admin username">
+        </div>
+        
+        <div style="margin-bottom: 1rem;">
+            <label style="display: block; margin-bottom: 0.5rem;">Password</label>
+            <input type="password" name="password" required placeholder="Enter password">
+        </div>
+        
+        <button type="submit" class="btn" style="width: 100%;">Enter Journey</button>
     </form>
 </div>
 {% endblock %}
