@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 2rem;">
+        <h2 style="margin:0; color: var(--primary);">Admin Dashboard</h2>
+        <a href="{{ url_for('logout') }}" class="btn" style="background-color: #d9534f;">Logout</a>
+    </div>
+    
+    <div style="background-color: #f8f9fa; padding: 1.5rem; border-radius: 8px; border: 1px solid #ddd;">
+        <h3 style="margin-top:0;">Add a New Quote</h3>
+        <form method="POST">
+            <div style="margin-bottom: 1rem;">
+                <label style="display:block; font-weight:bold;">Quote Text</label>
+                <textarea name="quote" rows="3" placeholder="Enter the wisdom here..." required style="width:100%; padding:0.5rem;"></textarea>
+            </div>
+            
+            <div style="margin-bottom: 1rem;">
+                <label style="display:block; font-weight:bold;">Source / Author</label>
+                <input type="text" name="source" placeholder="e.g., Quran 2:152 or Rumi" required style="width:100%; padding:0.5rem;">
+            </div>
+            
+            <button type="submit" class="btn">Publish Quote</button>
+        </form>
+    </div>
+</div>
+
+<div class="card">
+    <h3>Recent Additions</h3>
+    <ul style="list-style: none; padding: 0;">
+        {% for q in quotes %}
+            <li style="border-bottom: 1px solid #eee; padding: 0.5rem 0;">
+                <strong>{{ q.source }}:</strong> {{ q.text }}
+            </li>
+        {% else %}
+            <li>No quotes added yet.</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
