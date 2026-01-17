@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card" style="text-align: center;">
+    <h2>Assalamu Alaikum / Welcome</h2>
+    <p>We are honored by your visit to this space of reflection.</p>
+</div>
+
+<div class="card">
+    <h3>Latest Wisdom</h3>
+    {% if quote %}
+        <blockquote style="font-size: 1.2rem; font-style: italic;">
+            "{{ quote.text }}"
+        </blockquote>
+        <p style="text-align: right; font-weight: bold;">— {{ quote.source }}</p>
+    {% else %}
+        <p>No quotes have been added to the journey yet.</p>
+    {% endif %}
+</div>
+
+<div class="card">
+    <h3>About This Journey</h3>
+    <p>This website is dedicated to sharing knowledge and maintaining focus in a distracted world.</p>
+    <hr>
+    <h4>Author Summary</h4>
+    <p>Curated by a seeker of knowledge passionate about technology and spirituality.</p>
+</div>
+{% endblock %}
